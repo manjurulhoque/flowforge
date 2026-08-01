@@ -1,0 +1,243 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+@theme {
+	/* Semantic app tokens — aligned with the landing's dark palette */
+	--color-bg: #0a0b0f;
+	--color-surface: #13151b;
+	--color-surface-2: #171a21;
+	--color-border: #22262f;
+	--color-accent: #ff6a2b;
+	--color-accent-strong: #ff8a52;
+	--color-accent-soft: rgba(255, 106, 43, 0.14);
+	--color-accent-line: rgba(255, 106, 43, 0.35);
+
+	/* Zinc scale remapped to dark (app was originally built on light zinc) */
+	--color-zinc-50: #0a0b0f;
+	--color-zinc-100: #1a1e27;
+	--color-zinc-200: #22262f;
+	--color-zinc-300: #2e3440;
+	--color-zinc-400: #656b79;
+	--color-zinc-500: #9aa0ae;
+	--color-zinc-600: #a8afbc;
+	--color-zinc-700: #c2c8d4;
+	--color-zinc-800: #dde1ea;
+	--color-zinc-900: #eceef2;
+	--color-zinc-950: #f4f6fa;
+
+	/* Red scale remapped for dark surfaces */
+	--color-red-50: rgba(242, 84, 91, 0.12);
+	--color-red-100: rgba(242, 84, 91, 0.18);
+	--color-red-200: rgba(242, 84, 91, 0.3);
+	--color-red-300: rgba(242, 84, 91, 0.45);
+	--color-red-400: #f2545b;
+	--color-red-500: #f2545b;
+	--color-red-600: #f2545b;
+	--color-red-700: #e5484d;
+
+	--font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+	--font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+	--font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* ---------- Landing (marketing) theme ---------- */
+:root {
+	--bg: #0a0b0f;
+	--bg-raised: #0f1116;
+	--surface: #13151b;
+	--surface-2: #171a21;
+
+	--border: rgba(255, 255, 255, 0.08);
+	--border-strong: rgba(255, 255, 255, 0.15);
+
+	--text-primary: #eceef2;
+	--text-secondary: #9aa0ae;
+	--text-tertiary: #656b79;
+
+	--accent: #ff6a2b;
+	--accent-strong: #ff8a52;
+	--accent-soft: rgba(255, 106, 43, 0.14);
+	--accent-line: rgba(255, 106, 43, 0.35);
+
+	--sev-error: #f2545b;
+	--sev-error-soft: rgba(242, 84, 91, 0.14);
+	--sev-warn: #ff6a2b;
+	--sev-warn-soft: rgba(255, 106, 43, 0.14);
+	--sev-info: #45c6e0;
+	--sev-info-soft: rgba(69, 198, 224, 0.14);
+
+	--font-body: "Inter";
+	--font-display: "Space Grotesk";
+	--font-mono: "IBM Plex Mono";
+
+	--radius-sm: 6px;
+	--radius-md: 10px;
+	--radius-lg: 16px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+html {
+	background: var(--bg);
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text-primary);
+	font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+	letter-spacing: -0.02em;
+}
+
+code,
+.mono {
+	font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+::selection {
+	background: var(--accent-soft);
+	color: var(--text-primary);
+}
+
+/* fine dot grid, used in hero only */
+.bg-dot-grid {
+	background-image: radial-gradient(
+		rgba(255, 255, 255, 0.09) 1px,
+		transparent 1px
+	);
+	background-size: 24px 24px;
+}
+
+.text-gradient {
+	background: linear-gradient(
+		180deg,
+		var(--text-primary) 0%,
+		var(--text-secondary) 100%
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Scrollbar — mid-tone thumb that reads well on both dark landing and light app pages */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: color-mix(in srgb, var(--text-tertiary) 55%, transparent);
+	border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: color-mix(in srgb, var(--text-tertiary) 85%, transparent);
+}
+
+/* React Flow theming — dark */
+.react-flow {
+	--xy-background-color: transparent;
+	--xy-edge-stroke-default: #4a5160;
+	--xy-edge-stroke-selected: #9aa0ae;
+}
+.react-flow__attribution {
+	display: none;
+}
+.react-flow__handle {
+	width: 9px;
+	height: 9px;
+	background: #13151b;
+	border: 2px solid #4a5160;
+	transition: all 0.15s ease;
+}
+.react-flow__handle:hover {
+	border-color: #9aa0ae;
+	background: #1a1e27;
+}
+.react-flow__handle-connecting {
+	border-color: #ff6a2b;
+}
+.react-flow__minimap {
+	background-color: #13151b !important;
+	border: 1px solid #22262f;
+	border-radius: 12px;
+	overflow: hidden;
+}
+.react-flow__controls {
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+	border: 1px solid #22262f;
+}
+.react-flow__controls-button {
+	background: #13151b;
+	border-bottom: 1px solid #22262f;
+	color: #9aa0ae;
+	width: 30px;
+	height: 30px;
+}
+.react-flow__controls-button:hover {
+	background: #1a1e27;
+	color: #eceef2;
+}
+.react-flow__controls-button svg {
+	fill: currentColor;
+}
+
+.react-flow__edge-path {
+	stroke-width: 2;
+}
+.react-flow__edge.selected .react-flow__edge-path {
+	stroke-width: 2.5;
+}
+
+@keyframes flow-dash {
+	to {
+		stroke-dashoffset: -20;
+	}
+}
+.edge-animated .react-flow__edge-path {
+	stroke-dasharray: 6 4;
+	animation: flow-dash 0.6s linear infinite;
+}
+
+@keyframes fade-in-up {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.animate-fade-in-up {
+	animation: fade-in-up 0.25s ease both;
+}
