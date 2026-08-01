@@ -72,7 +72,7 @@ export function TopToolbar() {
 		<header className="relative z-30 flex h-14 shrink-0 items-center gap-2 border-b border-zinc-200 bg-zinc-100/90 px-3 backdrop-blur-md">
 			<button
 				onClick={() => router.push("/dashboard")}
-				className="flex items-center gap-2 rounded-lg px-1.5 py-1 transition-colors hover:bg-zinc-100"
+				className="flex items-center gap-2 rounded-lg px-1.5 py-1 transition-colors hover:bg-zinc-100 cursor-pointer select-none"
 			>
 				<div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#ff6a2b] text-[13px] font-bold text-white">
 					F
@@ -82,7 +82,10 @@ export function TopToolbar() {
 				</span>
 			</button>
 
-			<ChevronLeft className="h-4 w-4 text-zinc-300" />
+			<ChevronLeft
+				className="h-4 w-4 text-white-700 cursor-pointer transition-colors hover:text-zinc-500"
+				onClick={() => router.push("/dashboard")}
+			/>
 
 			<input
 				value={projectName}
