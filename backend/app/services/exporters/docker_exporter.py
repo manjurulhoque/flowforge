@@ -7,37 +7,7 @@ messaging edges so the generated stack is actually runnable.
 
 from app.schemas.common import Graph
 from app.services.exporters.base import Exporter
-
-# type_key → (image, category)
-IMAGE_MAP: dict[str, tuple[str, str]] = {
-    "postgresql": ("postgres:16-alpine", "database"),
-    "mysql": ("mysql:8.4", "database"),
-    "mongodb": ("mongo:7", "database"),
-    "cassandra": ("cassandra:4.1", "database"),
-    "redis": ("redis:7-alpine", "cache"),
-    "kafka": ("bitnami/kafka:3.6", "messaging"),
-    "rabbitmq": ("rabbitmq:3-management", "messaging"),
-    "nats": ("nats:2.10", "messaging"),
-    "api-gateway": ("nginx:1.27-alpine", "services"),
-    "load-balancer": ("nginx:1.27-alpine", "infrastructure"),
-    "prometheus": ("prom/prometheus:v2.53.0", "infrastructure"),
-    "grafana": ("grafana/grafana:11.1.0", "infrastructure"),
-    "loki": ("grafana/loki:3.1.0", "infrastructure"),
-    "jaeger": ("jaegertracing/all-in-one:1.57", "infrastructure"),
-}
-
-FRAMEWORK_IMAGES = {
-    "python": "python:3.13-slim",
-    "fastapi": "python:3.13-slim",
-    "django": "python:3.13-slim",
-    "node": "node:20-alpine",
-    "nextjs": "node:20-alpine",
-    "nestjs": "node:20-alpine",
-    "express": "node:20-alpine",
-    "go": "golang:1.22-alpine",
-    "spring": "eclipse-temurin:21-jre",
-    "java": "eclipse-temurin:21-jre",
-}
+from app.services.exporters.shared import FRAMEWORK_IMAGES, IMAGE_MAP
 
 
 class DockerComposeExporter(Exporter):

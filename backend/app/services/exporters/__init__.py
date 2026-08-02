@@ -4,7 +4,11 @@ from app.services.exporters.base import ExportRegistry, UnsupportedFormatError
 from app.services.exporters.docker_exporter import DockerComposeExporter
 from app.services.exporters.drawio_exporter import DrawioExporter
 from app.services.exporters.json_exporter import JsonExporter
+from app.services.exporters.k8s_exporter import KubernetesExporter
 from app.services.exporters.mermaid_exporter import MermaidExporter
+from app.services.exporters.openapi_exporter import OpenApiExporter
+from app.services.exporters.plantuml_exporter import PlantUmlExporter
+from app.services.exporters.terraform_exporter import TerraformExporter
 
 
 def build_registry() -> ExportRegistry:
@@ -15,6 +19,10 @@ def build_registry() -> ExportRegistry:
         MermaidExporter(),
         DockerComposeExporter(),
         DrawioExporter(),
+        KubernetesExporter(),
+        TerraformExporter(),
+        PlantUmlExporter(),
+        OpenApiExporter(),
     ):
         registry.register(exporter)
     return registry

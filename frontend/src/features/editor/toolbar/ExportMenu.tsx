@@ -6,6 +6,10 @@ import {
 	Image,
 	Code2,
 	Network,
+	Boxes,
+	Layers,
+	FileText,
+	Braces,
 	Check,
 	Copy,
 	Download,
@@ -50,6 +54,30 @@ const FORMATS: {
 		label: "draw.io",
 		icon: <Network className="h-4 w-4" />,
 		hint: "Editable diagram",
+	},
+	{
+		id: "k8s",
+		label: "Kubernetes",
+		icon: <Boxes className="h-4 w-4" />,
+		hint: "Deployment + Service manifests",
+	},
+	{
+		id: "terraform",
+		label: "Terraform",
+		icon: <Layers className="h-4 w-4" />,
+		hint: "Docker provider HCL",
+	},
+	{
+		id: "plantuml",
+		label: "PlantUML",
+		icon: <FileText className="h-4 w-4" />,
+		hint: "Component diagram-as-code",
+	},
+	{
+		id: "openapi",
+		label: "OpenAPI",
+		icon: <Braces className="h-4 w-4" />,
+		hint: "REST API skeleton spec",
 	},
 ];
 

@@ -171,4 +171,13 @@ export interface Project extends ProjectSummary {
 /* Export formats                                                     */
 /* ------------------------------------------------------------------ */
 
-export type ExportFormat = "json" | "mermaid" | "png" | "svg" | "drawio";
+export type ExportFormat =
+	| "json"
+	| "mermaid"
+	| "png"
+	| "svg"
+	| "drawio"
+	| "k8s"
+	| "terraform"
+	| "plantuml"
+	| "openapi";

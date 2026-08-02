@@ -96,6 +96,12 @@ export const editorService = {
 					return `// ${format.toUpperCase()} rasterization requires the export service (offline fallback).`;
 				case "drawio":
 					return `<!-- draw.io XML export (offline fallback) for ${nodes.length} nodes -->`;
+				case "k8s":
+				case "terraform":
+				case "openapi":
+					return `# ${format} manifest generation requires the export service (offline fallback).`;
+				case "plantuml":
+					return `' PlantUML export (offline fallback) for ${nodes.length} nodes.`;
 				default:
 					return "";
 			}
