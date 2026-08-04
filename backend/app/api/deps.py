@@ -11,7 +11,12 @@ from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.dependencies import get_db
-from app.repositories import ProjectRepository, RefreshTokenRepository, UserRepository
+from app.repositories import (
+    ProjectRepository,
+    RefreshTokenRepository,
+    UserRepository,
+    VersionRepository,
+)
 from app.services import AuthService, ExportService, ProjectService
 
 
@@ -28,7 +33,11 @@ def get_auth_service(
 def get_project_service(
     session: Annotated[AsyncSession, Depends(get_db)],
 ) -> ProjectService:
-    return ProjectService(session, projects=ProjectRepository(session))
+    return ProjectService(
+        session,
+        projects=ProjectRepository(session),
+        versions=VersionRepository(session),
+    )
 
 
 def get_export_service(
