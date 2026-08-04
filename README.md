@@ -7,6 +7,23 @@ designing, validating, and exporting microservice architectures.
 ![stack](https://img.shields.io/badge/FastAPI-SQLAlchemy%202.0-green)
 ![stack](https://img.shields.io/badge/TypeScript%20%2B%20Python-typed-blue)
 
+## Screenshots
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <p><strong>Landing page</strong></p>
+      <div style="max-height: 480px; overflow-y: auto; border: 1px solid #30363d; border-radius: 8px;">
+        <img src="screenshots/home.png" alt="Landing page" width="100%" />
+      </div>
+    </td>
+    <td width="50%" valign="top">
+      <p><strong>Architecture designer</strong></p>
+      <img src="screenshots/designer.png" alt="Architecture designer" width="100%" />
+    </td>
+  </tr>
+</table>
+
 ## Overview
 
 FlowForge is a two-part application:
