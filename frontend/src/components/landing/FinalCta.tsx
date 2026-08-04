@@ -11,7 +11,7 @@ export function FinalCta() {
 				<div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
 					<a
 						href="/register"
-						className="group inline-flex items-center gap-2 px-5 py-3 rounded-[var(--radius-sm)] bg-[var(--accent)] text-[#160b06] font-medium text-[14.5px] hover:bg-[var(--accent-strong)] transition-colors"
+						className="group inline-flex items-center gap-2 px-5 py-3 rounded-[var(--radius-sm)] bg-[var(--accent)] text-[var(--accent-on)] font-medium text-[14.5px] hover:bg-[var(--accent-strong)] transition-colors"
 					>
 						Start designing free
 						<ArrowRight

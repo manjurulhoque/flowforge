@@ -14,14 +14,17 @@ export const metadata: Metadata = {
 	},
 };
 
+const themeBootScript = `(function(){try{var t=localStorage.getItem("flowforge.theme");document.documentElement.setAttribute("data-theme",t==="light"||t==="dark"?t:"dark");}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();`;
+
 export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" data-scroll-behavior="smooth">
+		<html lang="en" data-theme="dark" data-scroll-behavior="smooth" suppressHydrationWarning>
 			<head>
+				<script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link
 					rel="preconnect"

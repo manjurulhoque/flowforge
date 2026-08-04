@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/primitives";
 import { Badge } from "@/components/ui/Badge";
 import { UserMenu } from "@/components/auth/UserMenu";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { CreateProjectDialog } from "./CreateProjectDialog";
 import type { ProjectSummary } from "@/types";
 import { cn } from "@/utils/cn";
@@ -60,6 +61,7 @@ export function Dashboard() {
 					</span>
 					<Badge className="ml-1">Beta</Badge>
 					<div className="ml-auto flex items-center gap-2">
+						<ThemeToggle />
 						<UserMenu />
 					</div>
 				</div>

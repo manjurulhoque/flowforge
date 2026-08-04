@@ -77,7 +77,7 @@ export function Pricing() {
 								)}
 							>
 								{t.highlighted && (
-									<span className="absolute -top-3 left-6 mono text-[10px] px-2 py-1 rounded-full bg-[var(--accent)] text-[#160b06] font-medium">
+									<span className="absolute -top-3 left-6 mono text-[10px] px-2 py-1 rounded-full bg-[var(--accent)] text-[var(--accent-on)] font-medium">
 										Most popular
 									</span>
 								)}
@@ -114,8 +114,8 @@ export function Pricing() {
 									className={cn(
 										"mt-7 inline-flex justify-center px-4 py-2.5 rounded-[var(--radius-sm)] text-[13.5px] font-medium transition-colors",
 										t.highlighted
-											? "bg-[var(--accent)] text-[#160b06] hover:bg-[var(--accent-strong)]"
-											: "border border-[var(--border-strong)] text-[var(--text-primary)] hover:bg-white/[0.04]",
+											? "bg-[var(--accent)] text-[var(--accent-on)] hover:bg-[var(--accent-strong)]"
+											: "border border-[var(--border-strong)] text-[var(--text-primary)] hover:bg-[var(--hover-fill)]",
 									)}
 								>
 									{t.cta}

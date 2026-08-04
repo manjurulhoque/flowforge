@@ -34,7 +34,7 @@ export function Hero() {
 					initial={{ opacity: 0, y: 10 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5 }}
-					className="inline-flex items-center gap-2 mono text-[11.5px] px-3 py-1.5 rounded-full border border-[var(--border)] bg-white/[0.03] text-[var(--text-secondary)] mb-7"
+					className="inline-flex items-center gap-2 mono text-[11.5px] px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--soft-fill)] text-[var(--text-secondary)] mb-7"
 				>
 					<span className="size-1.5 rounded-full bg-[var(--accent)]" />
 					v2.3 — simulation mode in private beta
@@ -70,7 +70,7 @@ export function Hero() {
 				>
 					<a
 						href="/register"
-						className="group inline-flex items-center gap-2 px-5 py-3 rounded-[var(--radius-sm)] bg-[var(--accent)] text-[#160b06] font-medium text-[14.5px] hover:bg-[var(--accent-strong)] transition-colors"
+						className="group inline-flex items-center gap-2 px-5 py-3 rounded-[var(--radius-sm)] bg-[var(--accent)] text-[var(--accent-on)] font-medium text-[14.5px] hover:bg-[var(--accent-strong)] transition-colors"
 					>
 						Start designing free
 						<ArrowRight
@@ -80,7 +80,7 @@ export function Hero() {
 					</a>
 					<a
 						href="#validation"
-						className="inline-flex items-center gap-2 px-5 py-3 rounded-[var(--radius-sm)] border border-[var(--border-strong)] text-[var(--text-primary)] font-medium text-[14.5px] hover:bg-white/[0.04] transition-colors"
+						className="inline-flex items-center gap-2 px-5 py-3 rounded-[var(--radius-sm)] border border-[var(--border-strong)] text-[var(--text-primary)] font-medium text-[14.5px] hover:bg-[var(--hover-fill)] transition-colors"
 					>
 						<PlayCircle size={15} />
 						See how it works

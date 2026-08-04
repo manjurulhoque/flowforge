@@ -126,9 +126,9 @@ export function ValidationDeepDive() {
 					<Reveal delay={0.1} className="h-full">
 						<div className="h-full rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--bg-raised)] overflow-hidden flex flex-col">
 							<div className="flex items-center gap-1.5 px-4 h-10 border-b border-[var(--border)] shrink-0">
-								<span className="size-2.5 rounded-full bg-white/10" />
-								<span className="size-2.5 rounded-full bg-white/10" />
-								<span className="size-2.5 rounded-full bg-white/10" />
+								<span className="size-2.5 rounded-full bg-[var(--soft-fill-strong)]" />
+								<span className="size-2.5 rounded-full bg-[var(--soft-fill-strong)]" />
+								<span className="size-2.5 rounded-full bg-[var(--soft-fill-strong)]" />
 								<span className="mono text-[11px] text-[var(--text-tertiary)] ml-2">
 									flowforge validate --project
 									checkout-platform

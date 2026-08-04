@@ -25,6 +25,7 @@ import { useUiStore } from "@/store/uiStore";
 import { useDiagnosticsStore } from "@/store/diagnosticsStore";
 import { projectService } from "@/services/projectService";
 import { validationService } from "@/services/validationService";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { ExportMenu } from "./ExportMenu";
 
 export function TopToolbar() {
@@ -201,6 +202,8 @@ export function TopToolbar() {
 				</Button>
 
 				<div className="mx-1 h-6 w-px bg-zinc-200" />
+
+				<ThemeToggle className="size-8" />
 
 				<button
 					className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-100 text-[11px] font-medium text-zinc-600"

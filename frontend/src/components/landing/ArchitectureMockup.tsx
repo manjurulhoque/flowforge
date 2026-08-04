@@ -74,18 +74,18 @@ function anchor(id: string) {
 
 export function ArchitectureMockup() {
 	return (
-		<div className="relative w-full rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface)] overflow-hidden shadow-[0_30px_80px_-30px_rgba(0,0,0,0.7)]">
+		<div className="relative w-full rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface)] overflow-hidden shadow-[var(--elevated-shadow)]">
 			{/* fake toolbar */}
 			<div className="flex items-center justify-between px-4 h-10 border-b border-[var(--border)] bg-[var(--bg-raised)]">
 				<div className="flex items-center gap-1.5">
-					<span className="size-2.5 rounded-full bg-white/10" />
-					<span className="size-2.5 rounded-full bg-white/10" />
-					<span className="size-2.5 rounded-full bg-white/10" />
+					<span className="size-2.5 rounded-full bg-[var(--soft-fill-strong)]" />
+					<span className="size-2.5 rounded-full bg-[var(--soft-fill-strong)]" />
+					<span className="size-2.5 rounded-full bg-[var(--soft-fill-strong)]" />
 				</div>
 				<span className="mono text-[11px] text-[var(--text-tertiary)]">
 					checkout-platform / architecture.flowforge
 				</span>
-				<span className="mono text-[10px] px-2 py-0.5 rounded-full bg-white/[0.04] text-[var(--text-tertiary)]">
+				<span className="mono text-[10px] px-2 py-0.5 rounded-full bg-[var(--hover-fill)] text-[var(--text-tertiary)]">
 					autosaved
 				</span>
 			</div>
@@ -231,7 +231,7 @@ export function ArchitectureMockup() {
 											<AlertTriangle
 												size={10}
 												strokeWidth={2.5}
-												color="#160b06"
+												color="var(--accent-on)"
 											/>
 										</foreignObject>
 									</g>

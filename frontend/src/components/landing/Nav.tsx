@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, GitBranch } from "lucide-react";
 import { cn } from "@/lib/cn";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const links = [
 	{ label: "Product", href: "#product" },
@@ -63,7 +64,7 @@ export function Nav() {
 								"px-3.5 py-2 text-[13.5px] rounded-[var(--radius-sm)] transition-colors",
 								l.disabled
 									? "text-[var(--text-tertiary)] cursor-default"
-									: "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/[0.04]",
+									: "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--hover-fill)]",
 							)}
 							onClick={(e) => l.disabled && e.preventDefault()}
 						>
@@ -73,6 +74,7 @@ export function Nav() {
 				</div>
 
 				<div className="hidden md:flex items-center gap-2">
+					<ThemeToggle variant="landing" />
 					<a
 						href="/login"
 						className="px-3.5 py-2 text-[13.5px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
@@ -81,7 +83,7 @@ export function Nav() {
 					</a>
 					<a
 						href="/register"
-						className="px-4 py-2 text-[13.5px] font-medium rounded-[var(--radius-sm)] bg-[var(--accent)] text-[#160b06] hover:bg-[var(--accent-strong)] transition-colors"
+						className="px-4 py-2 text-[13.5px] font-medium rounded-[var(--radius-sm)] bg-[var(--accent)] text-[var(--accent-on)] hover:bg-[var(--accent-strong)] transition-colors"
 					>
 						Get started
 					</a>
@@ -119,6 +121,12 @@ export function Nav() {
 							</a>
 						))}
 						<div className="flex flex-col gap-2 mt-4">
+							<div className="flex items-center justify-between px-1 py-2">
+								<span className="text-[13px] text-[var(--text-secondary)]">
+									Theme
+								</span>
+								<ThemeToggle variant="landing" />
+							</div>
 							<a
 								href="/login"
 								className="px-4 py-3 text-center text-[14px] rounded-[var(--radius-sm)] border border-[var(--border)] text-[var(--text-primary)]"
@@ -127,7 +135,7 @@ export function Nav() {
 							</a>
 							<a
 								href="/register"
-								className="px-4 py-3 text-center text-[14px] font-medium rounded-[var(--radius-sm)] bg-[var(--accent)] text-[#160b06]"
+								className="px-4 py-3 text-center text-[14px] font-medium rounded-[var(--radius-sm)] bg-[var(--accent)] text-[var(--accent-on)]"
 							>
 								Get started
 							</a>

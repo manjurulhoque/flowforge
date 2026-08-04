@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Network } from "lucide-react";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 /**
  * Shared visual shell for the login / register pages: centered card with
@@ -19,7 +20,10 @@ export function AuthCard({
 	children: React.ReactNode;
 }) {
 	return (
-		<div className="flex min-h-screen items-center justify-center bg-zinc-50 px-4">
+		<div className="relative flex min-h-screen items-center justify-center bg-zinc-50 px-4">
+			<div className="absolute right-4 top-4 sm:right-6 sm:top-6">
+				<ThemeToggle />
+			</div>
 			<motion.div
 				initial={{ opacity: 0, y: 8 }}
 				animate={{ opacity: 1, y: 0 }}
