@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
 import { useReactFlow } from "@xyflow/react";
 import {
 	Undo2,
@@ -15,6 +16,7 @@ import {
 	Loader2,
 	Check,
 	ChevronLeft,
+	History,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Tooltip } from "@/components/ui/Tooltip";
@@ -26,11 +28,13 @@ import { useDiagnosticsStore } from "@/store/diagnosticsStore";
 import { projectService } from "@/services/projectService";
 import { validationService } from "@/services/validationService";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { versionsQueryKey } from "@/features/editor/validation/VersionHistoryView";
 import { ExportMenu } from "./ExportMenu";
 
 export function TopToolbar() {
 	const router = useRouter();
 	const { zoomIn, zoomOut, fitView } = useReactFlow();
+	const qc = useQueryClient();
 
 	const undo = useEditorStore((s) => s.undo);
 	const redo = useEditorStore((s) => s.redo);
@@ -59,6 +63,7 @@ export function TopToolbar() {
 		const { nodes, edges } = useEditorStore.getState();
 		await projectService.saveGraph(projectId, { nodes, edges });
 		setSaveState("saved");
+		await qc.invalidateQueries({ queryKey: versionsQueryKey(projectId) });
 	}
 
 	async function handleValidate() {
@@ -170,6 +175,15 @@ export function TopToolbar() {
 						<ShieldCheck className="h-4 w-4" />
 					)}
 					Validate
+				</Button>
+
+				<Button
+					variant="secondary"
+					size="sm"
+					onClick={() => setBottomTab("history")}
+				>
+					<History className="h-4 w-4" />
+					History
 				</Button>
 
 				<div className="relative">
