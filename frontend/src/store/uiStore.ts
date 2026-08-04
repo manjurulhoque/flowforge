@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type BottomTab = "validation" | "logs" | "events" | "ai";
+export type BottomTab = "validation" | "logs" | "history" | "ai";
 
 interface UiState {
 	bottomOpen: boolean;

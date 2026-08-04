@@ -168,6 +168,25 @@ export interface Project extends ProjectSummary {
 }
 
 /* ------------------------------------------------------------------ */
+/* Version history                                                    */
+/* ------------------------------------------------------------------ */
+
+export interface VersionSummary {
+	id: string;
+	version: number;
+	label: string | null;
+	nodeCount: number;
+	edgeCount: number;
+	contentHash: string;
+	createdBy: string | null;
+	createdAt: string;
+}
+
+export interface ProjectVersion extends VersionSummary {
+	graph: ProjectGraph;
+}
+
+/* ------------------------------------------------------------------ */
 /* Export formats                                                     */
 /* ------------------------------------------------------------------ */
 

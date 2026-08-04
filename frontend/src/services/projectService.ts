@@ -1,4 +1,10 @@
-import type { Project, ProjectGraph, ProjectSummary } from "@/types";
+import type {
+	Project,
+	ProjectGraph,
+	ProjectSummary,
+	ProjectVersion,
+	VersionSummary,
+} from "@/types";
 import { apiFetch } from "@/lib/api";
 
 /**
@@ -90,5 +96,44 @@ export const projectService = {
 			method: "DELETE",
 			auth: true,
 		});
+	},
+
+	async listVersions(projectId: string): Promise<VersionSummary[]> {
+		const res = await apiFetch<{
+			items: VersionSummary[];
+			total: number;
+		}>(`/projects/${projectId}/versions`, { auth: true });
+		return res.items;
+	},
+
+	async getVersion(
+		projectId: string,
+		versionId: string,
+	): Promise<ProjectVersion> {
+		return apiFetch<ProjectVersion>(
+			`/projects/${projectId}/versions/${versionId}`,
+			{ auth: true },
+		);
+	},
+
+	async createCheckpoint(
+		projectId: string,
+		label?: string,
+	): Promise<ProjectVersion> {
+		return apiFetch<ProjectVersion>(`/projects/${projectId}/versions`, {
+			method: "POST",
+			auth: true,
+			body: { label: label?.trim() || null },
+		});
+	},
+
+	async restoreVersion(
+		projectId: string,
+		versionId: string,
+	): Promise<Project> {
+		return apiFetch<ProjectDto>(
+			`/projects/${projectId}/versions/${versionId}/restore`,
+			{ method: "POST", auth: true },
+		);
 	},
 };

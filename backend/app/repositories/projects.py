@@ -2,9 +2,9 @@
 
 :meth:`ProjectRepository.save_graph` implements full-graph replacement
 semantics: the client owns the authoritative copy of the canvas, so a save
-wipes the project's rows and inserts the received snapshot. Diff-based
-operations (for real-time collaboration and version history) will layer on
-top of this contract later.
+wipes the project's rows and inserts the received snapshot. Version history
+layers on top via :class:`~app.models.project.ProjectVersion` snapshots
+created by :class:`~app.services.projects.ProjectService`.
 """
 
 from uuid import UUID

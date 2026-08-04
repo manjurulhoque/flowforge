@@ -15,9 +15,9 @@ import {
 import { useUiStore, type BottomTab } from "@/store/uiStore";
 import { useDiagnosticsStore } from "@/store/diagnosticsStore";
 import { validationService } from "@/services/validationService";
-import { formatRelativeTime } from "@/utils/factory";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/utils/cn";
+import { VersionHistoryView } from "./VersionHistoryView";
 import type { Severity, ValidationIssue } from "@/types";
 
 const TABS: { id: BottomTab; label: string; icon: React.ReactNode }[] = [
@@ -28,8 +28,8 @@ const TABS: { id: BottomTab; label: string; icon: React.ReactNode }[] = [
 	},
 	{ id: "logs", label: "Logs", icon: <ScrollText className="h-3.5 w-3.5" /> },
 	{
-		id: "events",
-		label: "Events",
+		id: "history",
+		label: "History",
 		icon: <History className="h-3.5 w-3.5" />,
 	},
 	{
@@ -96,7 +96,7 @@ export function BottomPanel() {
 				<div className="h-52 overflow-y-auto border-t border-zinc-100 px-3 py-2.5">
 					{tab === "validation" && <ValidationView issues={issues} />}
 					{tab === "logs" && <LogsView />}
-					{tab === "events" && <EventsView />}
+					{tab === "history" && <VersionHistoryView />}
 					{tab === "ai" && <AiView />}
 				</div>
 			)}
@@ -200,34 +200,6 @@ function LogsView() {
 						{log.level}
 					</span>
 					<span className="text-zinc-600">{log.message}</span>
-				</div>
-			))}
-		</div>
-	);
-}
-
-function EventsView() {
-	const { data } = useQuery({
-		queryKey: ["events"],
-		queryFn: () => validationService.events(),
-	});
-	return (
-		<div className="space-y-2">
-			{(data ?? []).map((evt) => (
-				<div
-					key={evt.id}
-					className="flex items-center gap-2.5 text-[12px]"
-				>
-					<span className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-100 text-[10px] font-semibold text-zinc-500">
-						{evt.actor === "you" ? "AK" : "SY"}
-					</span>
-					<span className="text-zinc-600">
-						<b className="text-zinc-800">{evt.actor}</b>{" "}
-						{evt.action}
-					</span>
-					<span className="ml-auto text-[11px] text-zinc-400">
-						{formatRelativeTime(evt.timestamp)}
-					</span>
 				</div>
 			))}
 		</div>

@@ -8,10 +8,12 @@ contain zero business logic. Business rules live in ``app.services``.
 from app.repositories.projects import EdgeRepository, ProjectRepository
 from app.repositories.refresh_tokens import RefreshTokenRepository
 from app.repositories.users import UserRepository
+from app.repositories.versions import VersionRepository
 
 __all__ = [
     "EdgeRepository",
     "ProjectRepository",
     "RefreshTokenRepository",
     "UserRepository",
+    "VersionRepository",
 ]
